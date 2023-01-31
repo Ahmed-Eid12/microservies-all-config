@@ -1,0 +1,18 @@
+server:
+  port: 7000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+spring:
+  application:
+    name: Config-Service
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${user.home}/Desktop/microservices/config-server/config-properties

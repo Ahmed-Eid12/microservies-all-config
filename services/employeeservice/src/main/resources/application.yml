@@ -1,0 +1,23 @@
+
+spring:
+
+  application:
+    name: employee-service
+
+  config:
+    import: optional:configserver:http://localhost:7000/
+
+  zipkin:
+    baseUrl: ${zipkinURL}
+
+server:
+  port: ${port}
+  servlet:
+    context-path: /EmployeeService
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true

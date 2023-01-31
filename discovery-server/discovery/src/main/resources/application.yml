@@ -1,0 +1,16 @@
+
+server:
+  port: ${port}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+spring:
+  application:
+    name: discovery-server
+  config:
+    import: optional:configserver:http://localhost:7000/

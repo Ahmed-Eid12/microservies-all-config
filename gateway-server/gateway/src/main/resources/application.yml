@@ -1,0 +1,35 @@
+
+spring:
+
+  application:
+    name: gateway-server
+
+  config:
+    import: optional:configserver:http://localhost:7000/
+
+  zipkin:
+    baseUrl: ${zipkinURL}
+
+  cloud:
+    gateway:
+      routes:
+        - id: empService
+          uri: http://localhost:8001/
+          predicates:
+            - Path=/EmployeeService/**
+        - id: deptService
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/DepartmentService/**
+
+server:
+  port: ${port}
+  servlet:
+    context-path: /GatewayServer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true

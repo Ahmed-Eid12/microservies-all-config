@@ -1,0 +1,24 @@
+# department-service
+
+
+spring:
+  application:
+    name: department-service
+
+  config:
+    import: optional:configserver:http://localhost:7000/
+
+  zipkin:
+    baseUrl: ${zipkinURL}
+
+server:
+  port: ${port}
+  servlet:
+    context-path: /DepartmentService
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
