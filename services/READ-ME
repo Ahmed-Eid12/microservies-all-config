@@ -1,0 +1,11 @@
+download Kafka-server here https://kafka.apache.org/quickstart
+
+and all of you config here https://kafka.apache.org/quickstart
+
+in your kafka server path make this
+
+# Start the ZooKeeper service
+$ bin/zookeeper-server-start.sh config/zookeeper.properties
+
+# Start the Kafka broker service
+$ bin/kafka-server-start.sh config/server.properties
